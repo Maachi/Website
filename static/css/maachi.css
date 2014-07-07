@@ -6,7 +6,9 @@ body {
 
 h1,
 h2,
-p {
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
 }
@@ -23,7 +25,7 @@ p {
   -webkit-transition: all 400ms;
   transition: all 400ms;
   left: 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .page-wrapper.open {
@@ -90,10 +92,12 @@ p {
   -webkit-transition: all 400ms;
   transition: all 400ms;
   opacity: 0;
+  overflow: auto;
 }
 
 .section.show {
   opacity: 1;
+  z-index: 1;
 }
 
 .section .section-wrapper {
@@ -103,6 +107,11 @@ p {
 .section h2 {
   font-size: 40px;
   font-weight: 200;
+}
+
+.section h3 {
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .section p.featured {
@@ -124,6 +133,16 @@ p {
   top: 10px;
   color: #fff;
   text-decoration: none;
+}
+
+.section ul li {
+  list-style: none;
+  min-height: 50px;
+}
+
+.section ul li img {
+  float: left;
+  margin: 0 8px 0 0;
 }
 
 .footer {
