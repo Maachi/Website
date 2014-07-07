@@ -1,0 +1,142 @@
+body {
+	background: #000;
+	margin: 0;
+	font-family: "Helvetica Neue",Helvetica, Arial,"Lucida Grande", sans-serif;
+}
+
+h1, h2, p{
+	margin: 0;
+	padding: 0;
+}
+
+.page-wrapper{
+	background: url(../images/backgrounds/background_1200_800.jpg) no-repeat center center fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transform: translateZ(0);
+	transition : all 400ms;
+	left: 0;
+	z-index: 1;
+}
+
+
+.page-wrapper.open{
+	transform: translate3d(-320px, 0px, 0px);
+}
+
+
+.pattern-container{
+	background: url(../images/backgrounds/pattern@2x.png) repeat;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-size: 2px 2px;
+}
+
+
+.site{
+	position: absolute;
+	width: 320px;
+	height: 120px;
+	top: 50%;
+	left: 50%;
+	margin: -60px 0 0 -120px;
+}
+
+	.site h1{
+		position: relative;
+		display: block;
+		background: url(../images/backgrounds/sprite.png) no-repeat;
+		width: 314px;
+		height: 113px;
+		text-indent: -99999px;
+	}
+
+	.site .nav{
+		margin: 20px 0 0 25px;
+	}
+
+	.site a{
+		transition : all 400ms;
+		transition-timing-function: ease-out;
+		border-radius: 25px;
+		border: 2px solid #fff;
+		padding: 10px;
+		text-decoration: none;
+		color: #fff;
+		background: rgba(0, 0, 0, 0);
+	}
+
+
+	.site a:hover, .site a.selected{
+		border: 2px solid #000;
+		background: rgba(0, 0, 0, 1);
+	}
+
+.section{
+	color: #fff;
+	position: absolute;
+	width: 320px;
+	height: 100%;
+	right: 0;
+	transition : all 400ms;
+	opacity: 0;
+}
+
+.section.show{
+	opacity: 1;
+}
+
+	.section .section-wrapper{
+		margin: 20px;
+	}
+
+	.section h2{
+		font-size: 40px;
+		font-weight: 200;
+	}
+
+	.section p.featured{
+		font-size: 16px;
+		color: #fff;
+	}
+
+	.section p{
+		font-size: 13px;
+		color: #d2d2d2;
+		margin: 15px 0;
+		line-height: 20px;
+		font-weight: 300;
+	}
+
+	.section .close{
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		color: #fff;
+		text-decoration: none;
+	}
+
+
+	.footer{
+		position: absolute;
+		bottom: 15px;
+		left: 10px;
+		color: #fff;
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	.footer .small{
+		font-size: 12px;
+	}
+
+/** 
+ * Specific definitions for retina display
+ */
+@import "retina";
