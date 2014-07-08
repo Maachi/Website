@@ -1,4 +1,4 @@
-/*! Maachi 2014-07-06 */
+/*! Maachi 2014-07-07 */
 ;(function($){
 
 	/**
@@ -9,7 +9,8 @@
 
 		var navigationButtons = $(".site .nav a"),
 			siteContainer = $("#site"),
-			sections = $(".section");
+			sections = $(".section"),
+			isOpen = false;
 
 		/** Navigation event **/
 		var onNavigationButton = function(event){
@@ -22,8 +23,10 @@
 
 		var onCloseSection = function(event){
 			event.preventDefault();
-			loadSection(null);
-			history.pushState("/", event.target.textContent, event.target.href);
+			if(isOpen){
+				loadSection(null);
+				history.pushState("/", event.target.textContent, event.target.href);
+			}
 		};
 
 
@@ -42,6 +45,9 @@
 					siteContainer.removeClass("open");
 				}
 			}
+			setTimeout(function(){
+				isOpen = siteContainer.hasClass("open");
+			}, 1000);
 		};
 
 
@@ -51,9 +57,16 @@
 
 		/** Adds the event to the site **/
 		var addEvents = function(){
-			navigationButtons.on("click", onNavigationButton);
 			$(window).on("popstate", onWindowPopState);
-			$(".close").on("click", onCloseSection);
+			if (Modernizr.touch) {  
+				//navigationButtons.on("touchstart", onNavigationButton);
+				//$(".close").on("touchstart", onCloseSection);
+				//siteContainer.on("touchstart", onCloseSection);
+			} else {
+				//navigationButtons.on("click", onNavigationButton);
+				//$(".close").on("click", onCloseSection);
+				//siteContainer.on("click", onCloseSection);
+			}
 		};
 
 		/**
@@ -70,4 +83,4 @@
 		};
 
 	}();
-}(jQuery));/*! END Maachi 2014-07-06 */
+}(jQuery));/*! END Maachi 2014-07-07 */
